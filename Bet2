@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Купон Фонбет | Аргентина - Испания</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #0b1a2b 0%, #0d1f30 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif;
+            padding: 16px;
+        }
+
+        .coupon {
+            max-width: 440px;
+            width: 100%;
+            background: #f5f7fc;
+            border-radius: 32px 32px 28px 28px;
+            box-shadow: 0 25px 50px -8px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 215, 0, 0.15);
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+
+        .coupon:hover {
+            transform: scale(1.01);
+        }
+
+        /* Шапка БК */
+        .bookmaker-header {
+            background: #0a1a2a;
+            padding: 18px 24px 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #f7c948;
+        }
+
+        .bk-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bk-logo svg {
+            height: 28px;
+            width: auto;
+            fill: #f7c948;
+        }
+
+        .bk-name {
+            color: white;
+            font-weight: 700;
+            font-size: 22px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #f7c948 0%, #f5b81b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bk-tag {
+            background: #1e3347;
+            color: #b0c9e0;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+            border: 1px solid #2f4a62;
+            text-transform: uppercase;
+        }
+
+        .date-badge {
+            background: #132433;
+            color: #c0d4e8;
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid #2b4560;
+        }
+
+        .date-badge span {
+            color: #f7c948;
+            font-weight: 700;
+        }
+
+        /* Основная часть */
+        .event-block {
+            padding: 20px 20px 10px 20px;
+            background: #ffffff;
+        }
+
+        .tournament {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: #3b5c7a;
+            letter-spacing: 0.3px;
+            border-bottom: 1px dashed #dbe1ed;
+            padding-bottom: 10px;
+        }
+
+        .tournament span:last-child {
+            background: #eef2f9;
+            padding: 2px 14px;
+            border-radius: 30px;
+            color: #0c1f30;
+            font-weight: 700;
+            font-size: 11px;
+        }
+
+        .match {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0 12px 0;
+            border-bottom: 1px solid #e9edf6;
+        }
+
+        .team {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .team-name {
+            font-weight: 700;
+            font-size: 22px;
+            color: #0a1a2a;
+            letter-spacing: -0.2px;
+        }
+
+        .team-flag {
+            font-size: 18px;
+            margin-right: 6px;
+        }
+
+        .team-sub {
+            font-size: 12px;
+            color: #5b738b;
+            font-weight: 500;
+        }
+
+        .vs {
+            color: #6d8aa8;
+            font-weight: 800;
+            font-size: 14px;
+            background: #eef3fa;
+            padding: 6px 12px;
+            border-radius: 40px;
+            letter-spacing: 0.5px;
+        }
+
+        .bet-info {
+            background: #f2f6fe;
+            border-radius: 18px;
+            padding: 16px 18px;
+            margin: 10px 0 8px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #dce4f0;
+        }
+
+        .bet-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1f3a53;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .bet-label small {
+            font-weight: 400;
+            font-size: 12px;
+            color: #5a7b98;
+        }
+
+        .bet-odds {
+            background: #0f2336;
+            padding: 8px 24px;
+            border-radius: 60px;
+            color: #f7c948;
+            font-weight: 800;
+            font-size: 28px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 0 #09151f;
+            line-height: 1;
+        }
+
+        .stake-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            background: #ffffff;
+            padding: 8px 6px 8px 18px;
+            border-radius: 20px;
+            margin: 8px 0 4px 0;
+            border: 1px solid #dce4f0;
+        }
+
+        .stake-label {
+            font-weight: 500;
+            color: #2f4a62;
+            font-size: 15px;
+        }
+
+        .stake-amount {
+            font-weight: 800;
+            font-size: 26px;
+            color: #0c1f30;
+            background: #ecf2fa;
+            padding: 4px 22px 4px 20px;
+            border-radius: 60px;
+            letter-spacing: 0.5px;
+        }
+
+        .stake-amount span {
+            font-size: 18px;
+            font-weight: 600;
+            margin-right: 3px;
+            color: #1e3b56;
+        }
+
+        .potential {
+            background: #e5edf9;
+            border-radius: 20px;
+            padding: 12px 20px;
+            margin: 14px 0 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 6px solid #f7c948;
+        }
+
+        .potential-label {
+            font-weight: 600;
+            color: #10344e;
+            font-size: 15px;
+        }
+
+        .potential-value {
+            font-weight: 800;
+            font-size: 28px;
+            color: #0a1a2a;
+            background: white;
+            padding: 2px 28px;
+            border-radius: 60px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+
+        .potential-value small {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2d4b68;
+        }
+
+        .footer-note {
+            padding: 10px 20px 18px 20px;
+            background: #f5f7fc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #dbe1ed;
+            font-size: 11px;
+            color: #4a6a88;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+
+        .footer-note .id {
+            background: #e2e9f3;
+            padding: 3px 14px;
+            border-radius: 40px;
+            color: #1a3853;
+            font-weight: 700;
+            font-size: 10px;
+        }
+
+        .status-badge {
+            background: #0f2336;
+            color: #b9d0e8;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-badge strong {
+            color: #f7c948;
+            font-weight: 800;
+        }
+
+        /* адаптив */
+        @media (max-width: 450px) {
+            .team-name {
+                font-size: 18px;
+            }
+            .bet-odds {
+                font-size: 24px;
+                padding: 6px 16px;
+            }
+            .stake-amount {
+                font-size: 22px;
+                padding: 2px 16px;
+            }
+            .potential-value {
+                font-size: 24px;
+                padding: 2px 18px;
+            }
+            .bk-name {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="coupon">
+        <!-- Шапка Фонбет -->
+        <div class="bookmaker-header">
+            <div class="bk-logo">
+                <svg viewBox="0 0 48 48" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="48" height="48" rx="10" fill="#0f2336" />
+                    <path d="M24 12L32 20L24 28L16 20L24 12Z" fill="#f7c948" stroke="#f7c948" stroke-width="1.2" />
+                    <path d="M24 20L32 28L24 36L16 28L24 20Z" fill="#0f2336" stroke="#f7c948" stroke-width="1.4" />
+                    <circle cx="24" cy="20" r="2.5" fill="#f7c948" />
+                    <circle cx="24" cy="28" r="2.5" fill="#f7c948" />
+                </svg>
+                <span class="bk-name">ФОНБЕТ</span>
+            </div>
+            <div class="date-badge">
+                📅 <span>16.07.2026</span>
+            </div>
+        </div>
+
+        <!-- Содержимое купона -->
+        <div class="event-block">
+            <!-- Турнир -->
+            <div class="tournament">
+                <span>🏆 Чемпионат мира 2026 • Финал</span>
+                <span>#FIFA2026</span>
+            </div>
+
+            <!-- Матч -->
+            <div class="match">
+                <div class="team">
+                    <div class="team-name"><span class="team-flag">🇦🇷</span> Аргентина</div>
+                    <div class="team-sub">Победа в основное время</div>
+                </div>
+                <div class="vs">VS</div>
+                <div class="team" style="align-items: flex-end;">
+                    <div class="team-name"><span class="team-flag">🇪🇸</span> Испания</div>
+                    <div class="team-sub">Победа в основное время</div>
+                </div>
+            </div>
+
+            <!-- Исход + коэф -->
+            <div class="bet-info">
+                <div class="bet-label">
+                    ⚡ Исход <small>Победа Аргентины (1X2)</small>
+                </div>
+                <div class="bet-odds">
+                    3.60
+                </div>
+            </div>
+
+            <!-- Сумма ставки -->
+            <div class="stake-row">
+                <span class="stake-label">💰 Сумма ставки</span>
+                <span class="stake-amount"><span>₽</span>265 000</span>
+            </div>
+
+            <!-- Потенциальный выигрыш -->
+            <div class="potential">
+                <span class="potential-label">🏅 Потенциальный выигрыш</span>
+                <span class="potential-value"><small>₽</small>954 000</span>
+            </div>
+
+            <!-- Детали статуса -->
+            <div style="display: flex; justify-content: space-between; padding: 6px 4px 0 4px; font-size: 12px; color: #2e4b66;">
+                <span>🟢 Ставка принята</span>
+                <span style="font-weight: 600;">ID: #FIFA-265K-360</span>
+            </div>
+        </div>
+
+        <!-- Футер с датой и статусом -->
+        <div class="footer-note">
+            <span>Сделано сегодня, 16 июля 2026</span>
+            <span class="id">⚡ экспресс 1</span>
+            <span class="status-badge"><strong>активна</strong> • ЧМ-2026</span>
+        </div>
+
+        <!-- Доп. скрытый watermark (стиль) -->
+        <div style="height: 4px; background: linear-gradient(90deg, #f7c948, #b8860b, #f7c948); opacity: 0.5;"></div>
+    </div>
+</body>
+</html>
